@@ -1,5 +1,5 @@
 🔫 Buckshot Roulette (NOT THE ORIGINAL)  
-A nerve-wracking terminal game where you gamble with virtual lives - built with Python and Colorama
+A nerve-wracking terminal game where you gamble with virtual lives - built with Python 
 
 🚀 Quick Start
 
