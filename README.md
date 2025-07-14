@@ -3,7 +3,10 @@ A nerve-wracking terminal game where you gamble with virtual lives - built with 
 
 🚀 Quick Start
 
-git clone https://github.com/Asif-Mogal/BuckshotRoulette.git
-cd BuckshotRoulette
-pip install -r requirements.txt 
-python game.py
+1) git clone https://github.com/Asif-Mogal/BuckshotRoulette.git
+
+2) cd BuckshotRoulette
+
+3) pip install -r requirements.txt 
+
+4) python game.py
