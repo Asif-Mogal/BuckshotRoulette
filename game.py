@@ -2,10 +2,11 @@ import random
 from colorama import init,Fore,Style,Back
 init()
 items={1:"Cigarette", 2:"Beer", 3:"Magnifying Glass", 4:"Saw", 5:"Handcuffs"}
-player1={"name":"Asif","health":4,"items":[],"handcuffed":False,"turn":True,"sawed":False,"buff":[]}
-player2={"name":"Rasgreen","health":4,"items":[],"handcuffed":False,"turn":False,"sawed":False,"buff":[]}
+player1={"name":"Player 1","health":1,"items":[],"handcuffed":False,"turn":True,"sawed":False,"buff":[]}
+player2={"name":"Player 2","health":1,"items":[],"handcuffed":False,"turn":False,"sawed":False,"buff":[]}
 gun=[]
 turn=1
+isPlaying = 1
 
 def load_gun():
     if not gun:
@@ -150,13 +151,37 @@ def game(player1, player2):
       
 
     if player1["health"]<=0:
-        print(Style.BRIGHT+Fore.GREEN+f"{player2["name"]} WINS!")
+        print(Style.BRIGHT+Fore.GREEN+f"\n{player2["name"]} WINS!")
     else:
-        print(Style.BRIGHT+Fore.GREEN+f"{player1["name"]} WINS!")
+        print(Style.BRIGHT+Fore.GREEN+f"\n{player1["name"]} WINS!")
 if __name__ == "__main__":
-    print(Fore.MAGENTA + f"\nWELCOME TO BUCKSHOT ROULETTE, A GAME OF LIFE AND DEATH.\nHERE ARE THE RULES:\n1 -> THIS IS A 2 PLAYER GAME\n2 -> A GUN IS LOADED WITH LIVE AND BLANK BULLETS IN A RANDOM ORDER\n3 -> THE PLAYERS TAKE TURNS TO EITHER SHOOT THEMSELVES OR THE OTHER PERSON\n4 -> SHOOTING ONESELF WITH A BLANK GIVES THEM AN EXTRA TURN\n5 -> THE PLAYERS ARE ALSO GIVEN ITEMS TO HLLP THEM WIN\n6 -> THE PLAYER WHO DIES FIRST LOSES!\n\nITEMS AND THEIR USE\n1) CIGARETTE = PLAYER GAINS +1 HEALTH\n2) BEER = PLAYER EJECTS A BULLET OFF THE GUN\n3) MAGNIFYING GLASS = PLAYER CAN SEE THE CURRENT BULLET\n4) SAW = PLAYER CAN SAW OFF THE GUN TO DEAL TWICE THE DAMAGE\n5) HANDCUFFS = PLAYER CAN RESTRAIN THE OPPONENT FROM PLAYING THEIR TURN NEXT\n\n\nHAPPY HUNTING!\n\n")
-    game(player1,player2)
+    
+    print(Fore.MAGENTA + f"\nWELCOME TO BUCKSHOT ROULETTE, A GAME OF LIFE AND DEATH.\nHERE ARE THE RULES:\n1 -> THIS IS A 2 PLAYER GAME\n2 -> A GUN IS LOADED WITH LIVE AND BLANK BULLETS IN A RANDOM ORDER\n3 -> THE PLAYERS TAKE TURNS TO EITHER SHOOT THEMSELVES OR THE OTHER PERSON\n4 -> SHOOTING ONESELF WITH A BLANK GIVES THEM AN EXTRA TURN\n5 -> THE PLAYERS ARE ALSO GIVEN ITEMS TO HELLP THEM WIN\n6 -> THE PLAYER WHO DIES FIRST LOSES!\n\nITEMS AND THEIR USE\n1) CIGARETTE = PLAYER GAINS +1 HEALTH\n2) BEER = PLAYER EJECTS A BULLET OFF THE GUN\n3) MAGNIFYING GLASS = PLAYER CAN SEE THE CURRENT BULLET\n4) SAW = PLAYER CAN SAW OFF THE GUN TO DEAL TWICE THE DAMAGE\n5) HANDCUFFS = PLAYER CAN RESTRAIN THE OPPONENT FROM PLAYING THEIR TURN NEXT\n\n\nHAPPY HUNTING!\n\n")
 
+    while isPlaying:
+
+        p1 = input(Fore.RED+"\nPlayer 1 , enter your name : ")
+        player1["name"] = p1
+
+        p2 = input(Fore.RED+"\nPlayer 2 , enter your name : ")
+        player2["name"] = p2
+
+        print(Fore.GREEN+"\n\nWelcome to the game ",p1,"and",p2,"\n")
+
+        game(player1,player2)
+
+        choice = int(input("\nDo you want to play again? (1 - YES , 0 -NO)"))
+        isPlaying=choice
+
+        if choice:
+            player1={"name":"Player 1","health":1,"items":[],"handcuffed":False,"turn":True,"sawed":False,"buff":[]}
+            player2={"name":"Player 2","health":1,"items":[],"handcuffed":False,"turn":False,"sawed":False,"buff":[]}
+            gun=[]
+            turn=1
+
+    print(Fore.BLUE+"\nThanks for playing!")
+
+    
 
 
 
